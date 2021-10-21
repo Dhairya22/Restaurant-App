@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="showAlert">
+      <strong>Success! Data Saved Successfully.</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <form [formGroup]='restaurantForm'>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="text-light mb-2">Restaurant Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" formControlName='name' placeholder="Enter restaurant name">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="text-light mb-2 mt-3">Address</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" formControlName='address' placeholder="Enter address">
+      </div>
+
+      <div class="form-group">
+          <label for="exampleInputEmail1" class="text-light mb-2 mt-3">Contact Number</label>
+          <input type="number" class="form-control" id="exampleInputEmail1"
+            formControlName='contact' placeholder="Enter contact number">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your contact number with anyone else.</small>
+        </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="text-light mb-2 mt-3">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          formControlName='email' placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <button type="submit" class="btn btn-primary mb-2 mt-3" (click)='onSubmit()' [disabled]='restaurantForm.invalid'>Update</button>
+    </form>
+  </div>
