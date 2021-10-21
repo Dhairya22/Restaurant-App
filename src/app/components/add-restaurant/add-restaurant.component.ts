@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-restaurant',
@@ -23,12 +24,11 @@ export class AddRestaurantComponent implements OnInit {
   ngOnInit(): void {
     this.prepareForm();
 
-    console.log("hello");
+    this.commonService.isLoader();
 
-
-    this.commonService.getCurrentData(this.aRoute.snapshot.params.id).subscribe (res => {
+    this.commonService.getCurrentData(this.aRoute.snapshot.params.id).subscribe(res => {
       console.log("🚀 ~ file: add-restaurant.component.ts ~ line 27 ~ AddRestaurantComponent ~ this.commonService.getCurrentData ~ res", res)
-      if(this.aRoute.snapshot.params.id > 0 ) {
+      if (this.aRoute.snapshot.params.id > 0) {
         this.restaurantForm = new FormGroup({
           name: new FormControl(res['name']),
           address: new FormControl(res['address']),
@@ -41,42 +41,51 @@ export class AddRestaurantComponent implements OnInit {
     })
   }
 
-  prepareForm(){
+  prepareForm() {
     this.restaurantForm = new FormGroup({
-      name: new FormControl('',Validators.required),
-      address: new FormControl('',Validators.required),
-      contact: new FormControl(0,Validators.required),
-      email: new FormControl('',Validators.required)
+      name: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      contact: new FormControl(0, Validators.required),
+      email: new FormControl('', Validators.required)
     })
   }
 
-  onSubmit(){
+  onSubmit() {
 
     console.log("started");
 
-    if(this.aRoute.snapshot.params.id){
+    if (this.aRoute.snapshot.params.id > 0) {
       console.log("if");
 
-      this.commonService.updateRestrau(this.aRoute.snapshot.params.id,this.restaurantForm.value).subscribe( res => {
+      this.commonService.updateRestrau(this.aRoute.snapshot.params.id, this.restaurantForm.value).subscribe(res => {
         console.log("🚀 ~ file: add-restaurant.component.ts ~ line 61 ~ AddRestaurantComponent ~ this.commonService.updateRestrau ~ res", res)
-        this.router.navigate(['/list-restaurant'])
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Data has been saved successfully !!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(() => {
+          this.router.navigate(['/list-restaurant'])
+        }, 1500);
       })
-
-      // this.commonService.saveRestrauDetails(this.restaurantForm.value).subscribe(el => {
-      //   this.showAlert = true;
-      //   this.restaurantForm.reset({});
-      // })
     } else {
-      console.log("bye");
-
       this.commonService.saveRestrauDetails(this.restaurantForm.value).subscribe(el => {
-        this.showAlert = true;
+        console.log("🚀 ~ file: add-restaurant.component.ts ~ line 82 ~ AddRestaurantComponent ~ this.commonService.saveRestrauDetails ~ el", el)
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Data has been saved successfully !!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        setTimeout(() => {
+          this.router.navigate(['/list-restaurant'])
+        }, 1500);
+        // this.showAlert = true;
         this.restaurantForm.reset({});
       })
-      // this.commonService.updateRestrau(this.aRoute.snapshot.params.id,this.restaurantForm.value).subscribe( res => {
-      //   console.log("🚀 ~ file: add-restaurant.component.ts ~ line 61 ~ AddRestaurantComponent ~ this.commonService.updateRestrau ~ res", res)
-      //   this.router.navigate(['/list-restaurant'])
-      // })
     }
 
   }

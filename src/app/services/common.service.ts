@@ -7,10 +7,30 @@ import { Injectable } from '@angular/core';
 export class CommonService {
 
   url = 'http://localhost:3000/restrau';
+  public isLoaderShow = false;
 
   constructor(
     private httpService: HttpClient
   ) { }
+
+  ngOnInit(){
+    var counter = 0;
+    setInterval(function () {
+      var frames = 19; var frameWidth = 30;
+      var offset = counter * -frameWidth;
+      document.getElementById("spinner").style.backgroundPosition =
+        0 + "px" + " " + offset + "px";
+      counter++; if (counter >= frames) counter = 0;
+    }, 60);
+  }
+
+  isLoader(){
+    this.isLoaderShow = true;
+
+    setTimeout(() => {
+      this.isLoaderShow = false;
+    }, 1000);
+  }
 
   getRestrauList(){
     return this.httpService.get(this.url);
