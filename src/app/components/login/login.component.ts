@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
     userData: any;
 
     constructor(
-        private commonService: CommonService
+        private commonService: CommonService,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -38,10 +40,10 @@ export class LoginComponent implements OnInit {
 
             if(info > -1){
               console.log("Success");
-              alert("Success");
+              this.router.navigate(['list-restaurant']);
             } else {
               console.log("Failed");
-              alert("Failed");
+              alert("Enter Valid Credentials !!!");
             }
         });
     }
