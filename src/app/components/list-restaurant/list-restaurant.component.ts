@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import Swal from 'sweetalert2';
 
@@ -12,7 +13,8 @@ export class ListRestaurantComponent implements OnInit {
   restrauList: any;
 
   constructor(
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +54,10 @@ export class ListRestaurantComponent implements OnInit {
       }
     })
 
+  }
+
+  addRestrau(){
+    this.router.navigate(['add-restaurant'])
   }
 
   // deleteResto(resto){
