@@ -1,16 +1,16 @@
 <div id="main" class="main-container">
     <div class="box">
       <h2>Login</h2>
-      <form>
+      <form [formGroup]="loginForm">
         <div class="input-box">
-          <input id="user-name" type="text" name="" required="">
+          <input id="user-name" type="text" formControlName="username">
           <label>Username</label>
         </div>
         <div class="input-box">
-          <input id="user-pass" type="password" name="" required="">
+          <input id="user-pass" type="password" formControlName="password">
           <label>Password</label>
         </div>
-        <button type="submit" class="btn btn-primary mb-2 mt-3" >submit</button>
+        <button type="submit" class="btn btn-primary mb-2 mt-3" [disabled]="loginForm.invalid" (click)="authUser()">submit</button>
       </form>
       <!-- <p><a href="#">New User?</a></p> -->
       <p style="color: #9a9d9e;">Already a User? &nbsp;<a [routerLink]="[ '/register' ]">Register</a></p>

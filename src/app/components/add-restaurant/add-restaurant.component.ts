@@ -30,9 +30,9 @@ export class AddRestaurantComponent implements OnInit {
       console.log("🚀 ~ file: add-restaurant.component.ts ~ line 27 ~ AddRestaurantComponent ~ this.commonService.getCurrentData ~ res", res)
       if (this.aRoute.snapshot.params.id > 0) {
         this.restaurantForm = new FormGroup({
-          name: new FormControl(res['name']),
+          resturantName: new FormControl(res['resturantName']),
           address: new FormControl(res['address']),
-          contact: new FormControl(res['contact']),
+          contactNumber: new FormControl(res['contactNumber']),
           email: new FormControl(res['email'])
         })
         this.btnTitle = 'Update';
@@ -43,9 +43,9 @@ export class AddRestaurantComponent implements OnInit {
 
   prepareForm() {
     this.restaurantForm = new FormGroup({
-      name: new FormControl('', Validators.required),
+      resturantName: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
-      contact: new FormControl(0, Validators.required),
+      contactNumber: new FormControl(0, Validators.required),
       email: new FormControl('', Validators.required)
     })
   }

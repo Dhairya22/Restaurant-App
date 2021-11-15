@@ -12,15 +12,15 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.commonService.isLoader();
+    // this.commonService.isLoader();
 
-    var counter = 0;
-    setInterval(function () {
-      var frames = 19; var frameWidth = 30;
-      var offset = counter * -frameWidth;
-      document.getElementById("spinner").style.backgroundPosition =
-        0 + "px" + " " + offset + "px";
-      counter++; if (counter >= frames) counter = 0;
-    }, 60);
+    // var counter = 0;
+    // setInterval(function () {
+    //   var frames = 19; var frameWidth = 30;
+    //   var offset = counter * -frameWidth;
+    //   document.getElementById("spinner").style.backgroundPosition =
+    //     0 + "px" + " " + offset + "px";
+    //   counter++; if (counter >= frames) counter = 0;
+    // }, 60);
   }
 }

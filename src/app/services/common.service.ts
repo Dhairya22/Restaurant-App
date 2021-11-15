@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
 
-  url = 'http://localhost:3000/restrau';
+  url = 'https://retoolapi.dev/iZCqRR/login_credentials';
   public isLoaderShow = false;
 
   constructor(
@@ -50,5 +50,12 @@ export class CommonService {
 
   updateRestrau(id: number,data: any){
     return this.httpService.put(`${this.url}/${id}`,data)
+  }
+
+  getLoginCredentials(data: any){
+    return this.httpService.post("https://retoolapi.dev/Zl7Up0/login_credentials",data);
+  }
+  authUser(){
+    return this.httpService.get("https://retoolapi.dev/Zl7Up0/login_credentials");
   }
 }
