@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import Swal from 'sweetalert2';
 
@@ -14,13 +14,19 @@ export class ListRestaurantComponent implements OnInit {
 
     constructor(
         private commonService: CommonService,
-        private router: Router
+        private router: Router,
+        private aRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-        this.updateRestrauList();
 
         this.commonService.isLoader();
+
+        this.aRoute.data.subscribe( (response: any) => {
+            response.data.list.subscribe( result => {
+                this.restrauList = result;
+            })
+        })
     }
 
     updateRestrauList() {
