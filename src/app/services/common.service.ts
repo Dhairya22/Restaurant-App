@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonService {
 
-  url = 'https://retoolapi.dev/iZCqRR/login_credentials';
+  url = 'https://61925963aeab5c0017105f83.mockapi.io/api/v1/restaurantData';
   public isLoaderShow = false;
 
   constructor(

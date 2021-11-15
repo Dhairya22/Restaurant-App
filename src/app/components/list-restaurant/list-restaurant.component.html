@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div style="float: right;">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus plusButton" viewBox="0 0 16 16">
       <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" (click)="addRestrau()" />
@@ -22,10 +22,47 @@
             <td>{{data.email}}</td>
             <td>
               <i class="fa fa-pencil" style="font-size:30px;color: royalblue; cursor: pointer;" routerLink='/add-restaurant/{{data.id}}'></i> &nbsp; &nbsp;
-              <!-- (click)="updateList(data,i)" -->
               <i class="fa fa-trash" style="font-size:30px;color:red; cursor: pointer;" (click)="onRemove(data.id)"></i>
             </td>
           </tr>
         </tbody>
       </table>
+</div> -->
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="buttonDiv">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus plusButton" viewBox="0 0 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" (click)="addRestrau()" />
+        </svg>
+      </div>
+    <div id="no-more-tables">
+      <table class="col-md-12 table-bordered table-striped table-condensed cf table table-dark">
+        <thead class="cf">
+          <tr>
+            <th>Restaurant Name</th>
+            <th>Address</th>
+            <th class="numeric">Contact</th>
+            <th class="numeric">Email</th>
+            <th class="numeric">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of restrauList; let i = index">
+            <td data-title="Restaurant Name">{{data.resturantName}}</td>
+            <td data-title="Address">{{data.address}}</td>
+            <td data-title="Contact" class="numeric">{{data.contactNumber}}</td>
+            <td data-title="Email" class="numeric">{{data.email}}</td>
+            <td data-title="Action" class="numeric">
+              <i class="fa fa-pencil" style="font-size:30px;color: royalblue; cursor: pointer;"
+                routerLink='/add-restaurant/{{data.id}}'></i> &nbsp; &nbsp;
+              <i class="fa fa-trash" style="font-size:30px;color:red; cursor: pointer;" (click)="onRemove(data.id)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

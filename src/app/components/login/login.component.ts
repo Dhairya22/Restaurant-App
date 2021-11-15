@@ -38,8 +38,10 @@ export class LoginComponent implements OnInit {
 
             if(info > -1){
               console.log("Success");
+              alert("Success");
             } else {
               console.log("Failed");
+              alert("Failed");
             }
         });
     }
