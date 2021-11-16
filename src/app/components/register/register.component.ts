@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-register',
@@ -30,11 +31,22 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit() {
+
         this.commonService.getLoginCredentials(this.registerForm.getRawValue()).subscribe(el => {
             console.log("🚀 ~ file: login.component.ts ~ line 31 ~ LoginComponent ~ this.commonService.getLoginCredentials ~ el", el);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Data has been saved successfully !!',
+                showConfirmButton: false,
+                timer: 1500
+              })
         });
-        this.registerForm.reset();
-        this.router.navigate(['login']);
+
+        setTimeout(() =>{
+            this.registerForm.reset();
+            this.router.navigate(['login']);
+        },1500)
     }
 
 }

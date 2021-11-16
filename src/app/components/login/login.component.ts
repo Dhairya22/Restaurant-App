@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-login',
@@ -38,12 +39,20 @@ export class LoginComponent implements OnInit {
                 return item.password === password && item.username === username;
             });
 
-            if(info > -1){
-              console.log("Success");
-              this.router.navigate(['list-restaurant']);
+            if (info > -1) {
+                console.log("Success");
+
+                    this.router.navigate(['list-restaurant']);
             } else {
-              console.log("Failed");
-              alert("Enter Valid Credentials !!!");
+                console.log("Failed");
+                //   alert("Enter Valid Credentials !!!");
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Incorrect Username or Password !!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             }
         });
     }
