@@ -2,6 +2,23 @@ ul li a{
     color: white;
 }
 
+ul li{
+    border: 2px solid white;
+    border-radius: 10%;
+}
+
+.anchor-1:hover{
+    background-color: royalblue;
+}
+
+.anchor-2:hover{
+    background-color: rgb(255, 116, 116);
+}
+
+.anchor-3:hover{
+    background-color: green;
+}
+
 .style-two{
     color: white;
     /* margin-bottom: 5rem; */

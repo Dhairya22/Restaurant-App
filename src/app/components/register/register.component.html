@@ -1,24 +1,37 @@
 <div id="main" class="main-container">
-  <div class="box">
-    <h2>Register</h2>
-    <form [formGroup]='registerForm'>
-      <div class="input-box">
-        <input id="user-name" formControlName='username' type="text" name="" required="">
-        <label>Create Username</label>
-      </div>
-      <div class="input-box">
-        <input id="user-pass" formControlName='password' type="password" name="" required="">
-        <label>Create Password</label>
-      </div>
-      <div class="input-box">
-        <input id="user-name" formControlName='email' type="email" name="" required="">
-        <label>Email</label>
-      </div>
-      <button type="submit" class="btn btn-primary mb-2 mt-3" (click)='onSubmit()' [disabled]='registerForm.invalid'>submit</button>
-    </form>
-    <!-- <p><a href="#">Already a User?</a></p> -->
-    <p style="color: #9a9d9e;">Already a User? &nbsp;<a [routerLink]="[ '/login' ]"> Login</a></p>
-  </div>
+    <div class="box mt-3">
+        <h2>Register</h2>
+        <form [formGroup]='registerForm'>
+            <div class="input-box mb-3">
+                <input id="user-name" formControlName='username' type="text" name="" required=""
+                    style="margin-bottom: 5px;">
+                <span
+                    *ngIf="registerForm.controls.username.invalid && (registerForm.controls.username.dirty || registerForm.controls.username.touched)"
+                    style="color: red; font-size: small;">Enter Username</span>
+                <label>Create Username</label>
+            </div>
+            <div class="input-box mb-3">
+                <input id="user-pass" formControlName='password' type="password" name="" required=""
+                    style="margin-bottom: 5px;">
+                <span
+                    *ngIf="registerForm.controls.password.invalid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)"
+                    style="color: red; font-size: small;">Enter Password !!!</span>
+                <label>Create Password</label>
+            </div>
+            <div class="input-box">
+                <input id="user-name" formControlName='email' type="email" name="" required=""
+                    style="margin-bottom: 5px;">
+                <span
+                    *ngIf="registerForm.controls.email.invalid && (registerForm.controls.email.dirty || registerForm.controls.email.touched)"
+                    style="color: red; font-size: small;">Enter Correct Email !!!</span>
+                <label>Email</label>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2 mt-3" (click)='onSubmit()'
+                [disabled]='registerForm.invalid'>submit</button>
+        </form>
+        <!-- <p><a href="#">Already a User?</a></p> -->
+        <p style="color: #9a9d9e;">Already a User? &nbsp;<a [routerLink]="[ '/login' ]"> Login</a></p>
+    </div>
 </div>
 
 <div id="logged-in">

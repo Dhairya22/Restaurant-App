@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class CommonService {
 
   url = 'https://61925963aeab5c0017105f83.mockapi.io/api/v1/restaurantData';
+  loginUrl = 'https://61925963aeab5c0017105f83.mockapi.io/api/v1/login_credentials';
   public isLoaderShow = false;
 
   constructor(
@@ -53,9 +54,9 @@ export class CommonService {
   }
 
   getLoginCredentials(data: any){
-    return this.httpService.post("https://retoolapi.dev/Zl7Up0/login_credentials",data);
+    return this.httpService.post(this.loginUrl,data);
   }
   authUser(){
-    return this.httpService.get("https://retoolapi.dev/Zl7Up0/login_credentials");
+    return this.httpService.get(this.loginUrl);
   }
 }

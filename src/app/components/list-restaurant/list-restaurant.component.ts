@@ -63,7 +63,7 @@ export class ListRestaurantComponent implements OnInit {
     }
 
     addRestrau() {
-        this.router.navigate(['add-restaurant'])
+        this.router.navigate(['add-restaurant']);
     }
 
 }

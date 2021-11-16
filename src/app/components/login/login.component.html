@@ -4,11 +4,17 @@
             <h2>Login</h2>
             <form [formGroup]="loginForm">
                 <div class="input-box">
-                    <input id="user-name" type="text" formControlName="username">
+                    <input id="user-name" type="text" formControlName="username" style="margin-bottom: 5px;">
+                    <span
+                    *ngIf="loginForm.controls.username.invalid && (loginForm.controls.username.dirty || loginForm.controls.username.touched)"
+                    style="color: red; font-size: small;">Enter Valid Username !!!</span>
                     <label>Username</label>
                 </div>
-                <div class="input-box">
-                    <input id="user-pass" type="password" formControlName="password">
+                <div class="input-box mt-5 mb-3">
+                    <input id="user-pass" type="password" formControlName="password" style="margin-bottom: 5px;">
+                    <span
+                    *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)"
+                    style="color: red; font-size: small;">Enter Valid Password !!!</span>
                     <label>Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2 mt-3" [disabled]="loginForm.invalid"
