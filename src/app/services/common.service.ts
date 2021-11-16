@@ -9,6 +9,7 @@ export class CommonService {
   url = 'https://61925963aeab5c0017105f83.mockapi.io/api/v1/restaurantData';
   loginUrl = 'https://61925963aeab5c0017105f83.mockapi.io/api/v1/login_credentials';
   public isLoaderShow = false;
+  isAuthenticate: boolean = false;
 
   constructor(
     private httpService: HttpClient
@@ -23,6 +24,14 @@ export class CommonService {
         0 + "px" + " " + offset + "px";
       counter++; if (counter >= frames) counter = 0;
     }, 60);
+  }
+
+  checkAuthentication() {
+    let authToken = window.localStorage.getItem('login_creds');
+    if (authToken) {
+      this.isAuthenticate = JSON.parse(authToken);
+    }
+    return this.isAuthenticate;
   }
 
   isLoader(){

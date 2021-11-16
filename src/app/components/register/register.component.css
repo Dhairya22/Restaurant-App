@@ -9,6 +9,18 @@ body {
   padding: 0;
 }
 
+h2 {
+  color: white;
+}
+
+.style-two {
+  color: white;
+}
+
+hr {
+  margin: 0 0 !important;
+}
+
 .main-container {
   width: 100%;
   transition: 0.4s linear;

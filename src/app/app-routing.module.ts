@@ -8,15 +8,44 @@ import { ListRestaurantComponent } from './components/list-restaurant/list-resta
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UpdateRestaurantComponent } from './components/update-restaurant/update-restaurant.component';
+import { AuthGuard } from './guard/auth.guard';
+import { NoAuthGuard } from './guard/no-auth.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'add-restaurant', component: AddRestaurantComponent },
-    { path: 'add-restaurant/:id', component: AddRestaurantComponent },
-    { path: 'list-restaurant', component: ListRestaurantComponent, resolve: { data: ListRestaurantResolverService } }
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+        // canActivate: [NoAuthGuard],
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+        // canActivate: [AuthGuard]
+    },
+    {
+        path: 'add-restaurant',
+        component: AddRestaurantComponent
+    },
+    {
+        path: 'add-restaurant/:id',
+        component: AddRestaurantComponent
+    },
+    {
+        path: 'list-restaurant',
+        component: ListRestaurantComponent,
+        resolve: {
+            data: ListRestaurantResolverService
+        }
+    }
 ];
 
 @NgModule({

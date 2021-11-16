@@ -14,6 +14,9 @@ export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     userData: any;
 
+    public showPassword: boolean;
+    public showPasswordOnPress: boolean;
+
     constructor(
         private commonService: CommonService,
         private router: Router
@@ -36,13 +39,14 @@ export class LoginComponent implements OnInit {
             let { username, password } = this.loginForm.getRawValue();
 
             const info = this.userData.findIndex(item => {
+            console.log("🚀 ~ file: login.component.ts ~ line 39 ~ LoginComponent ~ this.commonService.authUser ~ item", item)
                 return item.password === password && item.username === username;
             });
 
             if (info > -1) {
                 console.log("Success");
-
-                    this.router.navigate(['list-restaurant']);
+                window.localStorage.setItem('login_creds',this.userData[info].email);
+                this.router.navigate(['list-restaurant']);
             } else {
                 console.log("Failed");
                 //   alert("Enter Valid Credentials !!!");
