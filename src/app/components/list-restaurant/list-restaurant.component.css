@@ -13,7 +13,7 @@
 
 .plusButton:hover{
     background-color: royalblue;
-    border-color: royalblue;
+    /* border-color: royalblue; */
     color: white;
 }
 

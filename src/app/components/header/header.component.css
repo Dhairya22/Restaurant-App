@@ -8,18 +8,17 @@ ul li{
 }
 
 .anchor-1:hover{
-    background-color: royalblue;
+    background-color: #007bff;
 }
 
 .anchor-2:hover{
-    background-color: rgb(255, 116, 116);
+    background-color: #dc3545;
 }
 
 .anchor-3:hover{
-    background-color: green;
+    background-color: #198754;
 }
 
 .style-two{
     color: white;
-    /* margin-bottom: 5rem; */
 }
