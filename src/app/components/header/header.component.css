@@ -9,14 +9,17 @@ ul li{
 
 .anchor-1:hover{
     background-color: #007bff;
+    border-radius: 10%;
 }
 
 .anchor-2:hover{
     background-color: #dc3545;
+    border-radius: 10%;
 }
 
 .anchor-3:hover{
     background-color: #198754;
+    border-radius: 10%;
 }
 
 .style-two{
