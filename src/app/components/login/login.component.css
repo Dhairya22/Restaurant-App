@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans'); */
 
-* {
+/* * {
   font-family: 'Open Sans', sans-serif;
-}
+} */
 
 body {
   margin: 0;
@@ -25,6 +25,14 @@ body {
   box-sizing: border-box;
   box-shadow: 0px 15px 25px rgba(0, 0, 0, .5);
   border-radius: 10px;
+}
+
+h2{
+  font-family: 'Outfit', sans-serif;
+}
+
+button{
+  cursor: pointer;
 }
 
 .box h2 {
@@ -139,3 +147,22 @@ hr {
 
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
+
+.inner-icon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-icon .fa {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  color: #fff;
+}
+
+button{
+  background: none;
+}
+
+.right-icon .fa { right: 0px;}
+.right-icon input { padding-right: 30px; }

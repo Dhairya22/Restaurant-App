@@ -7,7 +7,7 @@
 
 <div class="container">
     <div id="main" class="main-container">
-        <div class="box">
+        <div class="box mt-3">
             <h2>Register</h2>
             <form [formGroup]='registerForm'>
                 <div class="input-box">
@@ -15,7 +15,7 @@
                         style="margin-bottom: 5px;">
                     <span
                         *ngIf="registerForm.controls.username.invalid && (registerForm.controls.username.dirty || registerForm.controls.username.touched)"
-                        style="color: red; font-size: small;">Enter Username</span>
+                        style="color: red; font-size: small;">Enter Username !!!</span>
                     <label>Create Username</label>
                 </div>
                 <div class="input-box mt-5 mb-3">
@@ -38,7 +38,7 @@
                     [disabled]='registerForm.invalid'>Register</button>
             </form>
             <!-- <p><a href="#">Already a User?</a></p> -->
-            <p style="color: #9a9d9e;">Already a User? &nbsp;<a [routerLink]="[ '/login' ]"> Login</a></p>
+            <p style="color: #9a9d9e;">Already a User? &nbsp;<a [routerLink]="[ '/login' ]" style="border-bottom: 1px solid grey;"> Login</a></p>
         </div>
     </div>
 </div>

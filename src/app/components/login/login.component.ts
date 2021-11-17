@@ -14,6 +14,10 @@ export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     userData: any;
 
+    password;
+
+    show = false;
+
     public showPassword: boolean;
     public showPasswordOnPress: boolean;
 
@@ -30,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.loginForm = new FormGroup({
             username: new FormControl('', Validators.required),
             password: new FormControl('', Validators.required)
-        })
+        });
     }
 
     authUser() {
@@ -60,4 +64,14 @@ export class LoginComponent implements OnInit {
             }
         });
     }
+
+    onClick() {
+        if (this.password === this.loginForm.controls.passwords) {
+          this.password = 'text';
+          this.show = true;
+        } else {
+          this.password = this.loginForm.controls.passwords;
+          this.show = false;
+        }
+      }
 }

@@ -10,11 +10,16 @@ body {
   height: 100%;
 }
 
+button{
+  cursor: pointer;
+}
+
 .loader,
 .loader:before,
 .loader:after {
   border-radius: 50%;
 }
+
 .loader {
   color: #bababa;
   font-size: 11px;

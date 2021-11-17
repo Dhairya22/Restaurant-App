@@ -18,25 +18,26 @@
                     <label>Username</label>
                 </div>
                 <div class="input-box mt-5 mb-3">
-                    <input id="user-pass" type="password" formControlName="password" style="margin-bottom: 5px;">
-                    <div>
-                        <i alt="show" class="far fa-eye eye-show"
-                        (click)="showPassword = !showPassword"
-                        [class.hide]="showPassword"></i>
-                        <i alt="hide" class="far fa-eye-slash eye-hide"
-                        (click)="showPassword = !showPassword"
-                        [class.hide]="!showPassword"></i>
-                      </div>
-                    <span
+                    <div class="inner-icon right-icon">
+                        <button (click)="onClick()">
+                            <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
+                            <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i>
+                          </button>
+                        <!-- <i class="fa fa-eye" style="cursor: pointer;"></i> -->
+                        <input id="user-pass" type="password" formControlName="password" style="margin-bottom: 5px;">
+                        <span
                         *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)"
                         style="color: red; font-size: small;">Enter Valid Password !!!</span>
-                    <label>Password</label>
+                        <label>
+                            Password
+                        </label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-success mb-2 mt-3" [disabled]="loginForm.invalid"
                     (click)="authUser()">Login</button>
             </form>
             <!-- <p><a href="#">New User?</a></p> -->
-            <p style="color: #9a9d9e;">New User? &nbsp;<a [routerLink]="[ '/register' ]">Register</a></p>
+            <p style="color: #9a9d9e;">New User? &nbsp;<a [routerLink]="[ '/register' ]" style="border-bottom: 1px solid grey;">Register</a></p>
         </div>
     </div>
 </div>
