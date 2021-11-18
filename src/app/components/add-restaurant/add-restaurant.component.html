@@ -30,8 +30,9 @@
         </div>
 
         <button type="submit" class="btn btn-primary mb-2 mt-3" (click)="onSubmit()"
-            [disabled]="restaurantForm.invalid">
-            {{ btnTitle }}
+            [disabled]="restaurantForm.invalid" data-toggle="tooltip" data-placement="top" title="{{btnTitle}}">
+            {{ btnTitle }} 
         </button>
+        <button type="submit" class="btn btn-danger mb-2 mt-3" routerLink='/list-restaurant' style="margin-left: 15px;">Cancel</button>
     </form>
 </div>

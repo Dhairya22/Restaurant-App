@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 export class ListRestaurantComponent implements OnInit {
 
     restrauList: any;
+    pageSize = 8;
+    page = 1;
 
     constructor(
         private commonService: CommonService,
