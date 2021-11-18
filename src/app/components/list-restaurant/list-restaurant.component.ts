@@ -29,6 +29,10 @@ export class ListRestaurantComponent implements OnInit {
                 this.restrauList = result;
             })
         })
+
+        this.commonService.loginInfo.subscribe( response => {
+            console.log("🚀 ~ file: home.component.ts ~ line 18 ~ HomeComponent ~ ngOnInit ~ response", response)
+            })
     }
 
     updateRestrauList() {

@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UpdateRestaurantComponent } from './components/update-restaurant/update-restaurant.component';
 import { AuthGuard } from './guard/auth.guard';
 import { NoAuthGuard } from './guard/no-auth.guard';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
     {
@@ -45,6 +46,10 @@ const routes: Routes = [
         resolve: {
             data: ListRestaurantResolverService
         }
+    },
+    {
+        path: 'user-dashboard',
+        component: UserDashboardComponent
     }
 ];
 

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+  }
+
 .main{
     margin-bottom: 50px;
 }
@@ -18,14 +24,17 @@ ul li{
 
 .anchor-1:hover{
     background-color: royalblue;
+    border-radius: 10%;
 }
 
 .anchor-2:hover{
-    background-color: rgb(255, 116, 116);
+    background-color: #dc3545;
+    border-radius: 10%;
 }
 
 .anchor-3:hover{
-    background-color: green;
+    background-color: #198754;
+    border-radius: 10%;
 }
 
 .style-two{

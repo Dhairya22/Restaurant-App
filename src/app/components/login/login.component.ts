@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
     authUser() {
         this.commonService.authUser().subscribe(el => {
             this.userData = el;
+            // this.commonService.loginInfo.next(this.loginForm.value);
+            window.localStorage.setItem('userInfo', JSON.stringify(this.loginForm.value))
             let { username, password } = this.loginForm.getRawValue();
 
             const info = this.userData.findIndex(item => {

@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
+
+  public loginInfo = new BehaviorSubject('');
 
   url = 'https://61925963aeab5c0017105f83.mockapi.io/api/v1/restaurantData';
   loginUrl = 'https://61925963aeab5c0017105f83.mockapi.io/api/v1/login_credentials';

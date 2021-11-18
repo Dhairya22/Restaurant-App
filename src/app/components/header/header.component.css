@@ -1,4 +1,4 @@
-ul li a{
+/* ul li a{
     color: white;
 }
 
@@ -20,8 +20,20 @@ ul li{
 .anchor-3:hover{
     background-color: #198754;
     border-radius: 10%;
-}
+} */
 
 .style-two{
     color: white;
+    margin: 1rem 0 !important;
 }
+
+ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
+
+#navbarDropdownMenuLink{
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+ }
