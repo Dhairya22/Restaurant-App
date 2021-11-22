@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
 
-        this.commonService.getLoginCredentials(this.registerForm.getRawValue()).subscribe(el => {
+        this.commonService.saveLoginCredentials(this.registerForm.getRawValue()).subscribe(el => {
             console.log("🚀 ~ file: login.component.ts ~ line 31 ~ LoginComponent ~ this.commonService.getLoginCredentials ~ el", el);
             Swal.fire({
                 position: 'center',

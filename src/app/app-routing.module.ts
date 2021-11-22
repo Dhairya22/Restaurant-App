@@ -28,6 +28,14 @@ const routes: Routes = [
         component: RegisterComponent
     },
     {
+        path: 'list-restaurant',
+        component: ListRestaurantComponent,
+        resolve: {
+            data: ListRestaurantResolverService
+        },
+        canActivate: [AuthGuard]
+    },
+    {
         path: 'home',
         component: HomeComponent,
         // canActivate: [AuthGuard]
@@ -39,13 +47,6 @@ const routes: Routes = [
     {
         path: 'add-restaurant/:id',
         component: AddRestaurantComponent
-    },
-    {
-        path: 'list-restaurant',
-        component: ListRestaurantComponent,
-        resolve: {
-            data: ListRestaurantResolverService
-        }
     },
     {
         path: 'user-dashboard',

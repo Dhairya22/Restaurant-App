@@ -19,10 +19,10 @@
                 </div>
                 <div class="input-box mt-5 mb-3">
                     <div class="inner-icon right-icon">
-                        <button (click)="onClick()">
+                        <!-- <button (click)="onClick()">
                             <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
                             <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i>
-                          </button>
+                          </button> -->
                         <!-- <i class="fa fa-eye" style="cursor: pointer;"></i> -->
                         <input id="user-pass" type="password" formControlName="password" style="margin-bottom: 5px;">
                         <span
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success mb-2 mt-3" [disabled]="loginForm.invalid"
-                    (click)="authUser()">Login</button>
+                    (click)="getLoginCredentials()">Login</button>
             </form>
             <!-- <p><a href="#">New User?</a></p> -->
             <p style="color: #9a9d9e;">New User? &nbsp;<a [routerLink]="[ '/register' ]" style="border-bottom: 1px solid grey;">Register</a></p>

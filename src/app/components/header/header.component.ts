@@ -18,6 +18,9 @@ export class HeaderComponent implements OnInit {
     this.commonService.loginInfo.subscribe( response => {
       console.log("🚀 ~ file: home.component.ts ~ line 18 ~ HomeComponent ~ ngOnInit ~ response", response)
       })
+
+      this.commonService.userInfo$.subscribe( value => { console.log('value -> ',value)
+    });
   }
 
   logoutPage(){

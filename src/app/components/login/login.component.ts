@@ -37,21 +37,24 @@ export class LoginComponent implements OnInit {
         });
     }
 
-    authUser() {
-        this.commonService.authUser().subscribe(el => {
+    getLoginCredentials() {
+        this.commonService.getLoginCredentials().subscribe(el => {
             this.userData = el;
             // this.commonService.loginInfo.next(this.loginForm.value);
-            window.localStorage.setItem('userInfo', JSON.stringify(this.loginForm.value))
+            this.commonService.userInfo.next(this.loginForm.controls.username.value);
+            // window.localStorage.setItem('userInfo', JSON.stringify(this.loginForm.value))
             let { username, password } = this.loginForm.getRawValue();
 
             const info = this.userData.findIndex(item => {
-            console.log("🚀 ~ file: login.component.ts ~ line 39 ~ LoginComponent ~ this.commonService.authUser ~ item", item)
+            console.log("🚀 ~ file: login.component.ts ~ line 39 ~ LoginComponent ~ this.commonService.getLoginCredentials ~ item", item)
                 return item.password === password && item.username === username;
             });
 
             if (info > -1) {
                 console.log("Success");
-                window.localStorage.setItem('login_creds',this.userData[info].email);
+                // window.localStorage.setItem('login_creds',this.userData[info].email);
+                this.commonService.saveAuthToken(this.userData[info].email);
+
                 this.router.navigate(['list-restaurant']);
             } else {
                 console.log("Failed");
