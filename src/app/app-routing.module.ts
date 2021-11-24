@@ -33,12 +33,12 @@ const routes: Routes = [
         resolve: {
             data: ListRestaurantResolverService
         },
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
     {
         path: 'home',
         component: HomeComponent,
-        canActivate: [AuthGuard]
+        // canActivate: [AuthGuard]
     },
     {
         path: 'add-restaurant',
