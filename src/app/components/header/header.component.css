@@ -37,3 +37,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
     display: block;
     margin-top: 0;
  }
+
+ /* h1:hover{
+    color: red;
+ } */

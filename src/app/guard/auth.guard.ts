@@ -27,8 +27,9 @@ export class AuthGuard implements CanActivate {
 
     private checkIfAuthenticated(): boolean {
         let isLoggedIn: any = this.commonService.getAuthToken();
+        console.log("🚀 ~ file: auth.guard.ts ~ line 30 ~ AuthGuard ~ checkIfAuthenticated ~ isLoggedIn", isLoggedIn.isValue)
         if (!isLoggedIn) this.router.navigate(['/login']);
-        return isLoggedIn;
+        return isLoggedIn.isValue;
     }
 
 }

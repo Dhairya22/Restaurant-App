@@ -21,9 +21,10 @@ export class UserDashboardComponent implements OnInit {
     //   this.userInfo = response;
     // })
 
-    // this.userInfo = window.localStorage.getItem('userInfo');
-    this.userData =  this.userInfo;
-    console.log("🚀 ~ file: user-dashboard.component.ts ~ line 24 ~ UserDashboardComponent ~ ngOnInit ~ this.userInfo",this.userData);
+    this.userInfo = window.localStorage.getItem('user_info');
+    this.userData = JSON.parse(this.userInfo)
+    // this.userData =  this.userInfo;
+    console.log("🚀 ~ file: user-dashboard.component.ts ~ line 24 ~ UserDashboardComponent ~ ngOnInit ~ this.userInfo",JSON.parse(this.userInfo));
   }
 
 }

@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
 
             if (info > -1) {
                 console.log("Success");
-                // window.localStorage.setItem('login_creds',this.userData[info].email);
+                window.localStorage.setItem('user_info',JSON.stringify(this.loginForm.value));
                 this.commonService.saveAuthToken(this.userData[info].email);
 
                 this.router.navigate(['list-restaurant']);
